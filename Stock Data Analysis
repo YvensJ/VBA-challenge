@@ -39,6 +39,12 @@ For Each WS In Worksheets
             
             Percent_Change = Yearly_Change / open_value
             
+            If Yearly_Change < 0 Then
+                WS.Range("J" & next_row).Interior.ColorIndex = 3
+            ElseIf Yearly_Change > 0 Then
+                WS.Range("J" & next_row).Interior.ColorIndex = 4
+            End If
+            
             WS.Range("I" & next_row).Value = Ticker
             WS.Range("L" & next_row).Value = total_stock_volume
             WS.Range("J" & next_row).Value = Yearly_Change
